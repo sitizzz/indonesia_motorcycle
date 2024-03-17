@@ -76,7 +76,7 @@ def main():
             Modelz_honda[Model_dict_honda[Model_honda]]=1
             Modelz_honda = list(Modelz_honda)
             
-        Tahun_honda = st.selectbox('Choose year of assemble: ', list(range(1975,2020)))
+        Tahun_honda = st.selectbox('Choose year of assemble accordingly: ', list(range(2000,2020)))
         
         #code for prediction
         price=''
@@ -96,7 +96,7 @@ def main():
         if Model_suzuki in Model_dict_suzuki:
             Modelz_suzuki[Model_dict_suzuki[Model_suzuki]]=1
         
-        Tahun_suzuki = st.selectbox('Choose year of assemble: ', list(range(1990,2024)))
+        Tahun_suzuki = st.selectbox('Choose year of assemble: ', list(range(2000,2024)))
         
         #code for prediction
         price=''
@@ -120,7 +120,7 @@ def main():
             Modelz_yamaha[Model_dict_yamaha[Model_yamaha]]=1
             Modelz_yamaha = list(Modelz_yamaha)
         
-        Tahun_yamaha = st.selectbox('Choose year of assemble: ', list(range(1992,2020)))
+        Tahun_yamaha = st.selectbox('Choose year of assemble: ', list(range(2000,2020)))
         
         #code for prediction
         price=''
