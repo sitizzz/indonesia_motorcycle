@@ -23,7 +23,6 @@ def predict_honda(input_data):
     return f'Estimated price for **{honda[0]} {honda[1]}** is IDR **{int(predict_honda):,}**'
 
 def predict_yamaha(input_data):
-    print(input_data)
     yamaha = [v[0] for v in input_data]           
     combined_data = input_data[2] + input_data[3]
             
@@ -37,7 +36,6 @@ def predict_yamaha(input_data):
     return f'Estimated price for **{yamaha[0]} {yamaha[1]}** is IDR **{int(predict_yamaha):,}**'
  
 def predict_suzuki(input_data):
-    print(input_data)
     suzuki = [v[0] for v in input_data]
     combined_data = input_data[2] + input_data[3]
             
