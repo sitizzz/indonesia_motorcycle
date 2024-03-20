@@ -11,7 +11,6 @@ model_suzuki = pickle.load(open('finalized_suzuki.pkl','rb'))
 #creating a function for prediction
 def predict_motor(input_data):
     motor = [v[0] for v in input_data]
-    print(motor[0])
     combined_data = input_data[2] + input_data[3]
     
     #changing the input_data to numpy array
