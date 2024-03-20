@@ -9,8 +9,9 @@ model_yamaha = pickle.load(open('yamaha_smote.pkl','rb'))
 model_suzuki = pickle.load(open('finalized_suzuki.pkl','rb'))
 
 #creating a function for prediction
-def predict_honda(input_data):
-    honda = [v[0] for v in input_data]           
+def predict_motor(input_data):
+    motor = [v[0] for v in input_data]
+    print(motor[0])
     combined_data = input_data[2] + input_data[3]
     
     #changing the input_data to numpy array
@@ -19,34 +20,17 @@ def predict_honda(input_data):
     #reshape the array as we are predicting for one instance
     input_data_reshaped = input_data_as_numpy_array.reshape(1,-1)
     
-    predict_honda = model_honda.predict(input_data_reshaped)
-    return f'Estimated price for **{honda[0]} {honda[1]}** is IDR **{int(predict_honda):,}**'
+    if motor[0] == "Honda":
+        predict_honda = model_honda.predict(input_data_reshaped)
+        return f'Estimated price for **{motor[0]} {motor[1]}** is IDR **{int(predict_honda):,}**'
 
-def predict_yamaha(input_data):
-    yamaha = [v[0] for v in input_data]           
-    combined_data = input_data[2] + input_data[3]
-            
-    #changing the input_data to numpy array
-    input_data_as_numpy_array = np.asarray(combined_data)
+    elif motor[0] == "Suzuki":
+        predict_suzuki = model_suzuki.predict(input_data_reshaped)
+        return f'Estimated price for **{motor[0]} {motor[1]}** is IDR **{int(predict_suzuki):,}**'
     
-    #reshape the array as we are predicting for one instance
-    input_data_reshaped = input_data_as_numpy_array.reshape(1,-1)
-    
-    predict_yamaha = model_yamaha.predict(input_data_reshaped)
-    return f'Estimated price for **{yamaha[0]} {yamaha[1]}** is IDR **{int(predict_yamaha):,}**'
- 
-def predict_suzuki(input_data):
-    suzuki = [v[0] for v in input_data]
-    combined_data = input_data[2] + input_data[3]
-            
-    #changing the input_data to numpy array
-    input_data_as_numpy_array = np.asarray(combined_data)
-    
-    #reshape the array as we are predicting for one instance
-    input_data_reshaped = input_data_as_numpy_array.reshape(1,-1)
-    
-    predict_suzuki = model_suzuki.predict(input_data_reshaped)
-    return f'Estimated price for **{suzuki[0]} {suzuki[1]}** is IDR **{int(predict_suzuki):,}**'
+    else:
+        predict_yamaha = model_yamaha.predict(input_data_reshaped)
+        return f'Estimated price for **{motor[0]} {motor[1]}** is IDR **{int(predict_yamaha):,}**'
 
 def main():
     #creating a title
@@ -82,7 +66,7 @@ def main():
         #creating a button for prediction
         if st.button('Start Predicting'): 
         
-            price = predict_honda([[Merek], [Model_honda], [Tahun_honda], Modelz_honda])
+            price = predict_motor([[Merek], [Model_honda], [Tahun_honda], Modelz_honda])
         
     elif Merek == 'Suzuki':
         Model_suzuki = st.selectbox('Choose model: ',['Address', 'GSX / Katana', 'Nex','Satria', 'Shogun', 'Skywave'])
@@ -102,7 +86,7 @@ def main():
         #creating a button for prediction
         if st.button('Start Predicting'): 
        
-            price = predict_suzuki([[Merek], [Model_suzuki], [Tahun_suzuki], list(Modelz_suzuki)])
+            price = predict_motor([[Merek], [Model_suzuki], [Tahun_suzuki], list(Modelz_suzuki)])
                 
     else:
         Model_yamaha = st.selectbox('Choose model: ',['Aerox', 'Byson', 'F1','F1ZR', 'Fino', 'FreeGo', 'Jupiter',
@@ -126,7 +110,7 @@ def main():
         #creating a button for prediction
         if st.button('Start Predicting'):  
         
-            price = predict_yamaha([[Merek], [Model_yamaha], [Tahun_yamaha], Modelz_yamaha]) 
+            price = predict_motor([[Merek], [Model_yamaha], [Tahun_yamaha], Modelz_yamaha]) 
          
     st.success(price)
            
@@ -159,27 +143,3 @@ def main():
         
 if __name__ == '__main__':
     main()
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
