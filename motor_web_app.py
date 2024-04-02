@@ -37,7 +37,7 @@ def main():
     st.subheader('Second Hand Motorcycle')
     
     st.write("Hello, I am Siti Zubaidah, the creator of this web app!")
-    st.write("This web application is my observation area to see whether streamlit able to run several machine learning models. It consists of three machine learning models for each brand. Namely: Honda, Suzuki and Yamaha. You can learn the code through my github [here](https://github.com/sitizzz/indonesia_motorcycle/blob/main/motor_web_app.py). If you consider to copy this web app. Kindly give credit to my name and hyperlink this web app.")
+    st.write("This web application is my observation area to see whether streamlit able to run several machine learning models. It consists of three machine learning models for each brand. Namely: Honda, Suzuki and Yamaha. You can learn the code through my github [here](https://github.com/sitizzz/indonesia_motorcycle/blob/main/motor_web_app.py). If you consider to copy this web app, kindly give credit to my name and hyperlink this web app.")
     st.write("Learn data science [here](https://www.youtube.com/channel/UCeFBTC1HiIAR3rd11CuCM4A) (Bahasa Indonesia Only)")
     st.write("I would like to thank you in advance for your sponsorship [paypalme](https://paypal.me/sitiz121?country.x=ID&locale.x=en_US)")
     
